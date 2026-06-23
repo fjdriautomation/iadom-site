@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IADOM Automation</title>
-  <meta name="description" content="Automatización estratégica e inteligencia artificial para negocios reales." />
+  <meta name="description" content="Automatización e inteligencia artificial para negocios reales. Soluciones prácticas, escalables y vendibles." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
@@ -13,29 +13,36 @@
 
     :root {
       --black:   #080A0F;
-      --light-bg: #F0EEE9;
-      --light-mid: #E4E2DC;
       --white:   #F2F0EB;
-      --accent:  #1A1D24;
-      --accent-green: #2D6A4F;
-      --dark-bg: #080A0F;
-      --dark-mid: #1A1D24;
-      --muted-light: #6B6860;
-      --muted-dark:  #4A4F5C;
-      --border-light: rgba(0,0,0,0.08);
-      --border-dark:  rgba(242,240,235,0.08);
+      --accent:  #C8FF00;
+      --mid:     #1A1D24;
+      --muted:   #4A4F5C;
+      --border:  rgba(242,240,235,0.08);
     }
 
     html { scroll-behavior: smooth; }
 
     body {
+      background: var(--black);
+      color: var(--white);
       font-family: 'DM Mono', monospace;
       font-size: 15px;
       line-height: 1.7;
       overflow-x: hidden;
     }
 
-    /* ── NAV (claro) ── */
+    /* ── NOISE OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.35;
+    }
+
+    /* ── NAV ── */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -44,9 +51,9 @@
       align-items: center;
       justify-content: space-between;
       padding: 1.5rem 3rem;
-      border-bottom: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border);
       backdrop-filter: blur(12px);
-      background: rgba(240,238,233,0.85);
+      background: rgba(8,10,15,0.7);
     }
 
     .logo {
@@ -54,30 +61,29 @@
       font-weight: 800;
       font-size: 1.2rem;
       letter-spacing: 0.04em;
-      color: var(--black);
+      color: var(--white);
       text-decoration: none;
     }
 
-    .logo span { color: var(--accent-green); }
+    .logo span { color: var(--accent); }
 
     nav a.contact-link {
       font-size: 0.75rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--muted-light);
+      color: var(--muted);
       text-decoration: none;
       transition: color 0.2s;
     }
-    nav a.contact-link:hover { color: var(--accent-green); }
+    nav a.contact-link:hover { color: var(--accent); }
 
-    /* ── HERO (claro) ── */
+    /* ── HERO ── */
     .hero {
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       padding: 8rem 3rem 4rem;
-      background: var(--light-bg);
       position: relative;
       overflow: hidden;
     }
@@ -85,9 +91,9 @@
     .hero::after {
       content: '';
       position: absolute;
-      bottom: -100px; right: -150px;
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(45,106,79,0.07) 0%, transparent 70%);
+      top: -200px; right: -200px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(200,255,0,0.06) 0%, transparent 70%);
       pointer-events: none;
     }
 
@@ -95,7 +101,7 @@
       font-size: 0.7rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--accent-green);
+      color: var(--accent);
       margin-bottom: 2rem;
       opacity: 0;
       animation: fadeUp 0.8s 0.2s forwards;
@@ -108,20 +114,19 @@
       line-height: 0.95;
       letter-spacing: -0.02em;
       max-width: 900px;
-      color: var(--black);
       opacity: 0;
       animation: fadeUp 0.8s 0.4s forwards;
     }
 
     .hero h1 em {
       font-style: normal;
-      color: var(--accent-green);
+      color: var(--accent);
     }
 
     .hero-sub {
       margin-top: 2.5rem;
       max-width: 480px;
-      color: var(--muted-light);
+      color: var(--muted);
       font-size: 0.9rem;
       line-height: 1.8;
       opacity: 0;
@@ -137,28 +142,9 @@
       animation: fadeUp 0.8s 0.8s forwards;
     }
 
-    .btn-primary-dark {
+    .btn-primary {
       display: inline-block;
-      background: var(--black);
-      color: var(--white);
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
-      font-size: 0.8rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 1rem 2rem;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .btn-primary-dark:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-    }
-
-    .btn-primary-light {
-      display: inline-block;
-      background: #F2F0EB;
+      background: var(--accent);
       color: var(--black);
       font-family: 'Syne', sans-serif;
       font-weight: 700;
@@ -170,31 +156,31 @@
       transition: transform 0.2s, box-shadow 0.2s;
     }
 
-    .btn-primary-light:hover {
+    .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(242,240,235,0.15);
+      box-shadow: 0 8px 30px rgba(200,255,0,0.25);
     }
 
     .scroll-hint {
       font-size: 0.7rem;
       letter-spacing: 0.1em;
-      color: var(--muted-light);
+      color: var(--muted);
       text-transform: uppercase;
     }
 
-    /* ── TICKER (transición) ── */
+    /* ── TICKER ── */
     .ticker-wrap {
-      border-top: 1px solid var(--border-light);
-      border-bottom: 1px solid var(--border-dark);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
       overflow: hidden;
       padding: 1rem 0;
-      background: var(--black);
+      background: var(--mid);
     }
 
     .ticker {
       display: flex;
       gap: 3rem;
-      animation: ticker 25s linear infinite;
+      animation: ticker 20s linear infinite;
       white-space: nowrap;
     }
 
@@ -202,12 +188,12 @@
       font-size: 0.7rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--muted-dark);
+      color: var(--muted);
       flex-shrink: 0;
     }
 
     .ticker span strong {
-      color: #F2F0EB;
+      color: var(--accent);
       font-weight: 400;
     }
 
@@ -216,41 +202,39 @@
       to   { transform: translateX(-50%); }
     }
 
-    /* ── SERVICES (oscuro) ── */
+    /* ── SERVICES ── */
     .section {
       padding: 6rem 3rem;
-      background: var(--dark-bg);
     }
 
     .section-label {
       font-size: 0.65rem;
       letter-spacing: 0.25em;
       text-transform: uppercase;
-      color: #F2F0EB;
+      color: var(--accent);
       margin-bottom: 3rem;
       display: flex;
       align-items: center;
       gap: 1rem;
-      opacity: 0.4;
     }
 
     .section-label::after {
       content: '';
       flex: 1;
       height: 1px;
-      background: var(--border-dark);
+      background: var(--border);
     }
 
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1px;
-      background: var(--border-dark);
-      border: 1px solid var(--border-dark);
+      background: var(--border);
+      border: 1px solid var(--border);
     }
 
     .service-card {
-      background: var(--dark-bg);
+      background: var(--black);
       padding: 2.5rem;
       transition: background 0.3s;
       position: relative;
@@ -262,19 +246,19 @@
       position: absolute;
       top: 0; left: 0; right: 0;
       height: 2px;
-      background: #F2F0EB;
+      background: var(--accent);
       transform: scaleX(0);
       transform-origin: left;
       transition: transform 0.3s;
     }
 
-    .service-card:hover { background: var(--dark-mid); }
+    .service-card:hover { background: var(--mid); }
     .service-card:hover::before { transform: scaleX(1); }
 
     .service-num {
       font-size: 0.65rem;
       letter-spacing: 0.2em;
-      color: var(--muted-dark);
+      color: var(--muted);
       margin-bottom: 1.5rem;
     }
 
@@ -283,24 +267,23 @@
       font-weight: 700;
       font-size: 1.1rem;
       margin-bottom: 1rem;
-      color: #F2F0EB;
+      color: var(--white);
     }
 
     .service-card p {
       font-size: 0.82rem;
-      color: var(--muted-dark);
+      color: var(--muted);
       line-height: 1.8;
     }
 
-    /* ── ABOUT (oscuro) ── */
+    /* ── ABOUT ── */
     .about {
       padding: 6rem 3rem;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 6rem;
       align-items: center;
-      border-top: 1px solid var(--border-dark);
-      background: var(--dark-bg);
+      border-top: 1px solid var(--border);
     }
 
     .about h2 {
@@ -309,16 +292,15 @@
       font-size: clamp(2rem, 4vw, 3.5rem);
       line-height: 1.05;
       letter-spacing: -0.02em;
-      color: #F2F0EB;
     }
 
     .about h2 em {
       font-style: normal;
-      color: rgba(242,240,235,0.3);
+      color: var(--accent);
     }
 
     .about-text p {
-      color: var(--muted-dark);
+      color: var(--muted);
       font-size: 0.88rem;
       line-height: 1.9;
       margin-bottom: 1.2rem;
@@ -334,7 +316,7 @@
       font-family: 'Syne', sans-serif;
       font-weight: 800;
       font-size: 2.2rem;
-      color: #F2F0EB;
+      color: var(--accent);
       line-height: 1;
     }
 
@@ -342,19 +324,18 @@
       font-size: 0.7rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--muted-dark);
+      color: var(--muted);
       margin-top: 0.4rem;
     }
 
-    /* ── CONTACT (oscuro) ── */
+    /* ── CONTACT ── */
     .contact {
       padding: 6rem 3rem;
-      border-top: 1px solid var(--border-dark);
+      border-top: 1px solid var(--border);
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 6rem;
       align-items: start;
-      background: var(--dark-mid);
     }
 
     .contact h2 {
@@ -363,12 +344,11 @@
       font-size: clamp(2rem, 4vw, 3rem);
       line-height: 1.05;
       letter-spacing: -0.02em;
-      color: #F2F0EB;
     }
 
     .contact h2 em {
       font-style: normal;
-      color: rgba(242,240,235,0.3);
+      color: var(--accent);
     }
 
     .contact-info {
@@ -388,39 +368,38 @@
       font-size: 0.65rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--muted-dark);
+      color: var(--muted);
     }
 
     .contact-row a,
     .contact-row span:last-child {
-      color: #F2F0EB;
+      color: var(--white);
       text-decoration: none;
       font-size: 0.9rem;
       transition: color 0.2s;
     }
 
-    .contact-row a:hover { color: rgba(242,240,235,0.5); }
+    .contact-row a:hover { color: var(--accent); }
 
     .contact-right p {
-      color: var(--muted-dark);
+      color: var(--muted);
       font-size: 0.85rem;
       line-height: 1.9;
       margin-bottom: 2rem;
     }
 
-    /* ── FOOTER (oscuro) ── */
+    /* ── FOOTER ── */
     footer {
       padding: 2rem 3rem;
-      border-top: 1px solid var(--border-dark);
+      border-top: 1px solid var(--border);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: var(--dark-bg);
     }
 
     footer p {
       font-size: 0.7rem;
-      color: var(--muted-dark);
+      color: var(--muted);
       letter-spacing: 0.08em;
     }
 
@@ -428,10 +407,10 @@
       font-family: 'Syne', sans-serif;
       font-weight: 800;
       font-size: 0.9rem;
-      color: #F2F0EB;
+      color: var(--white);
     }
 
-    footer .logo-sm span { color: rgba(242,240,235,0.35); }
+    footer .logo-sm span { color: var(--accent); }
 
     /* ── ANIMATIONS ── */
     @keyframes fadeUp {
@@ -462,74 +441,74 @@
     <a href="#contacto" class="contact-link">Contacto</a>
   </nav>
 
-  <!-- HERO (claro) -->
+  <!-- HERO -->
   <section class="hero">
-    <p class="hero-tag">Automatización · Inteligencia Artificial · Estrategia</p>
+    <p class="hero-tag">Automatización · Inteligencia Artificial · Negocios</p>
     <h1>Sistemas que<br>trabajan por<br>tu <em>negocio.</em></h1>
     <p class="hero-sub">
       Construimos soluciones de automatización e IA prácticas, 
       escalables y listas para operar. Sin promesas vacías.
     </p>
     <div class="hero-cta">
-      <a href="#contacto" class="btn-primary-dark">Conversemos</a>
+      <a href="#contacto" class="btn-primary">Conversemos</a>
       <span class="scroll-hint">↓ Ver más</span>
     </div>
   </section>
 
-  <!-- TICKER (transición claro→oscuro) -->
+  <!-- TICKER -->
   <div class="ticker-wrap">
     <div class="ticker">
-      <span>Automatización <strong>estratégica</strong></span>
+      <span>WhatsApp <strong>Business API</strong></span>
       <span>·</span>
-      <span>Inteligencia <strong>artificial aplicada</strong></span>
+      <span>Chatbots <strong>conversacionales</strong></span>
       <span>·</span>
-      <span>Integración de <strong>sistemas</strong></span>
+      <span>Automatización <strong>n8n</strong></span>
       <span>·</span>
-      <span>Agentes <strong>conversacionales</strong></span>
+      <span>Integración <strong>Google Workspace</strong></span>
       <span>·</span>
-      <span>Optimización de <strong>procesos</strong></span>
+      <span>Agentes <strong>IA</strong></span>
       <span>·</span>
-      <span>Automatización <strong>estratégica</strong></span>
+      <span>WhatsApp <strong>Business API</strong></span>
       <span>·</span>
-      <span>Inteligencia <strong>artificial aplicada</strong></span>
+      <span>Chatbots <strong>conversacionales</strong></span>
       <span>·</span>
-      <span>Integración de <strong>sistemas</strong></span>
+      <span>Automatización <strong>n8n</strong></span>
       <span>·</span>
-      <span>Agentes <strong>conversacionales</strong></span>
+      <span>Integración <strong>Google Workspace</strong></span>
       <span>·</span>
-      <span>Optimización de <strong>procesos</strong></span>
+      <span>Agentes <strong>IA</strong></span>
       <span>·</span>
     </div>
   </div>
 
-  <!-- SERVICES (oscuro) -->
+  <!-- SERVICES -->
   <section class="section">
     <p class="section-label">Servicios</p>
     <div class="services-grid">
       <div class="service-card">
         <p class="service-num">01</p>
-        <h3>Agentes conversacionales</h3>
-        <p>Bots inteligentes para canales de mensajería que gestionan reservas, responden consultas y ejecutan procesos de negocio de forma autónoma y continua.</p>
+        <h3>Chatbots de agendamiento</h3>
+        <p>Bots conversacionales para WhatsApp e Instagram que gestionan reservas, confirman disponibilidad y registran en Google Calendar y Sheets automáticamente.</p>
       </div>
       <div class="service-card">
         <p class="service-num">02</p>
         <h3>Automatización de procesos</h3>
-        <p>Flujos de trabajo automatizados que conectan tus sistemas, eliminan tareas repetitivas y generan eficiencia operativa real y medible desde el primer día.</p>
+        <p>Workflows en n8n que conectan tus herramientas existentes, eliminan tareas repetitivas y generan eficiencia operativa real y medible.</p>
       </div>
       <div class="service-card">
         <p class="service-num">03</p>
-        <h3>Integración de IA</h3>
-        <p>Incorporamos inteligencia artificial en tus operaciones para clasificar, responder y procesar información con precisión, velocidad y criterio estratégico.</p>
+        <h3>Integración con IA</h3>
+        <p>Incorporamos modelos de lenguaje como Claude en tus flujos de trabajo para clasificar, responder y procesar información de forma inteligente.</p>
       </div>
       <div class="service-card">
         <p class="service-num">04</p>
-        <h3>Infraestructura de mensajería</h3>
-        <p>Configuración profesional de canales de comunicación empresarial para negocios que buscan escalar su atención al cliente sin aumentar su equipo.</p>
+        <h3>Infraestructura Meta Cloud API</h3>
+        <p>Configuración profesional de WhatsApp Business API, Instagram Business, webhooks y tokens permanentes para negocios que quieren escalar.</p>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT (oscuro) -->
+  <!-- ABOUT -->
   <section class="about">
     <div>
       <h2>IA práctica,<br>no <em>humo.</em></h2>
@@ -546,22 +525,21 @@
     </div>
     <div class="about-text">
       <p>
-        IADOM Automation construye productos de inteligencia artificial 
-        reales y operativos. No consultoras genéricas ni demos que nunca 
-        llegan a producción.
+        IADOM Automation nace para construir productos de IA reales y vendibles. 
+        No consultoras genéricas ni demos que nunca llegan a producción.
       </p>
       <p>
-        Cada solución que entregamos está diseñada para operar desde el 
-        primer día: estable, documentada y mantenible en el tiempo.
+        Trabajamos con n8n, Google Workspace, Meta Cloud API y modelos de lenguaje 
+        de última generación para entregar soluciones que operan desde el primer día.
       </p>
       <p>
-        Nuestro foco es el impacto comercial real — automatización que 
-        reduce costos, mejora la experiencia del cliente y escala con tu negocio.
+        Cada producto que construimos es estable, documentado y mantenible — 
+        porque el objetivo es que tu negocio dependa de él con confianza.
       </p>
     </div>
   </section>
 
-  <!-- CONTACT (oscuro) -->
+  <!-- CONTACT -->
   <section class="contact" id="contacto">
     <div>
       <h2>Hablemos de tu <em>proyecto.</em></h2>
@@ -583,10 +561,10 @@
     <div class="contact-right">
       <p>
         Si tienes un negocio y quieres automatizar procesos, implementar 
-        un agente conversacional o integrar IA en tu operación, escríbenos. 
+        un chatbot o integrar IA en tu operación, escríbenos. 
         Respondemos en menos de 24 horas.
       </p>
-      <a href="mailto:contacto@iadom.site" class="btn-primary-light">Enviar mensaje</a>
+      <a href="mailto:contacto@iadom.site" class="btn-primary">Enviar mensaje</a>
     </div>
   </section>
 
