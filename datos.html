@@ -8,9 +8,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Outfit:wght@300;400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --dark: #080E1A; --accent: #1B4FD8; --light: #F0F4FF; --muted: #64748B; --border: rgba(27,79,216,0.12); }
+    :root { --dark: #080E1A; --accent: #1B4FD8; --light: #F8FAFF; --muted: #64748B; --border: rgba(27,79,216,0.12); }
     body { font-family: 'Outfit', sans-serif; background: var(--light); color: var(--dark); line-height: 1.8; }
-    nav { padding: 1.4rem 3rem; background: rgba(240,244,255,0.95); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 10; backdrop-filter: blur(12px); }
+    nav { padding: 1.2rem 3rem; background: rgba(248,250,255,0.95); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 10; backdrop-filter: blur(12px); }
     .logo { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 1.3rem; color: var(--dark); text-decoration: none; }
     .logo span { color: var(--accent); }
     nav a.back { font-size: 0.8rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
@@ -22,12 +22,13 @@
     h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 1.1rem; color: var(--dark); margin: 2.5rem 0 0.8rem; }
     p { font-size: 0.9rem; color: #374151; margin-bottom: 1rem; font-weight: 300; }
     a { color: var(--accent); }
-    .info-box { background: white; border: 1px solid var(--border); border-radius: 10px; padding: 2rem; margin: 2rem 0; }
+    .info-box { background: white; border: 1px solid var(--border); border-radius: 10px; padding: 1.8rem; margin: 2rem 0; }
     .info-box p { margin: 0; }
-    .info-box strong { font-weight: 600; color: var(--dark); display: block; margin-bottom: 0.5rem; font-size: 0.85rem; letter-spacing: 0.04em; }
-    .btn { display: inline-block; background: var(--accent); color: white; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; padding: 0.9rem 1.8rem; border-radius: 4px; margin-top: 1.5rem; transition: opacity 0.2s; }
+    .info-box strong { font-weight: 600; color: var(--dark); display: block; margin-bottom: 0.5rem; font-size: 0.85rem; }
+    .btn { display: inline-block; background: var(--accent); color: white; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; padding: 0.9rem 1.8rem; border-radius: 4px; margin-top: 1.5rem; transition: opacity 0.2s; }
     .btn:hover { opacity: 0.88; }
-    footer { text-align: center; padding: 2rem; font-size: 0.72rem; color: var(--muted); border-top: 1px solid var(--border); margin-top: 4rem; }
+    footer { text-align: center; padding: 2rem 1.5rem; font-size: 0.7rem; color: var(--muted); border-top: 1px solid var(--border); margin-top: 4rem; line-height: 1.9; }
+    footer strong { color: #374151; font-weight: 500; }
   </style>
 </head>
 <body>
@@ -52,18 +53,24 @@
 
     <div class="info-box">
       <strong>Contacto para solicitudes de eliminación</strong>
-      <p>📧 <a href="mailto:contacto@iadom.site">contacto@iadom.site</a><br>
+      <p>📧 <a href="mailto:freddy@iadom.site">freddy@iadom.site</a><br>
       Asunto sugerido: "Solicitud de eliminación de datos personales"</p>
     </div>
 
     <h2>Plazo de respuesta</h2>
-    <p>IADOM Automation responderá tu solicitud en un plazo máximo de 10 días hábiles, confirmando la eliminación de los datos o indicando las razones por las cuales no es posible proceder (por ejemplo, obligaciones legales de conservación de documentos contables).</p>
+    <p>IADOM Automation responderá tu solicitud en un plazo máximo de 10 días hábiles, confirmando la eliminación de los datos o indicando las razones por las cuales no es posible proceder.</p>
 
     <h2>Excepciones</h2>
     <p>En algunos casos, la ley nos obliga a conservar cierta información por un período determinado, como datos contables o de facturación. En estos casos te informaremos qué datos no pueden eliminarse y por qué motivo.</p>
 
-    <a href="mailto:contacto@iadom.site?subject=Solicitud%20de%20eliminaci%C3%B3n%20de%20datos%20personales" class="btn">Enviar solicitud de eliminación</a>
+    <a href="mailto:freddy@iadom.site?subject=Solicitud%20de%20eliminaci%C3%B3n%20de%20datos%20personales" class="btn">Enviar solicitud de eliminación</a>
   </div>
-  <footer>© 2026 IADOM Automation · iadom.site · Representante legal: Freddy José Díaz Rondón · RUT 26.658.309-5</footer>
+  <footer>
+    <strong>IADOM Automation</strong><br>
+    Representante Legal: Freddy José Díaz Rondón · RUT 26.658.309-5<br>
+    Dirección: H DE LA CONCEPCIÓN 2462 DP 606 EDIF PZA LAS PALMAS, NULL IQUIQUE, Chile.<br>
+    Contacto: freddy@iadom.site | +56993953320<br>
+    © 2026 IADOM Automation
+  </footer>
 </body>
 </html>
